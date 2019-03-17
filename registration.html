@@ -1,0 +1,163 @@
+<html>
+<head>
+    
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="madebyme.css">
+
+<script type="text/javascript" src="../js/jquery-1.4.3.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Registration Form</title>
+
+<style>
+   .button_sub{ display: -webkit-box;
+    text-align: center;
+    margin: 10px auto;
+    width: 70%;
+   }
+</style>
+</head>
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["Register"].value;
+  if (x == "") {
+    alert("Are you sure to submit the form");
+    return false;
+  }
+}
+</script>
+<body>
+
+    
+        <header class="top-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-5 header-logo">
+                        <br>
+                        <a href="index.html"><img src="uplift_logo.png" alt="" class="img-responsive logo"></a>
+                    </div>
+    
+                    <div class="col-md-7">
+                        <nav class="navbar navbar-default">
+                          <div class="container-fluid nav-bar">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                            </div>
+    
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                              
+                              <ul class="nav navbar-nav navbar-right">
+                                <li><a class="menu active" href="#home" >Home</a></li>
+                                <li><a class="menu" href="/FinanaceManagementSystem/showproducts.jsp">Buy Products</a></li>
+                                <li><a class="menu" href="/FinanaceManagementSystem/FAQ.jsp">FAQ </a></li>
+                                <li><a class="menu" href="/FinanaceManagementSystem/Login.jsp">Login</a></li>
+                                <li><a class="menu" href="/FinanaceManagementSystem/RegistrationForm.jsp"> contact us</a></li>
+                              </ul>
+                            </div><!-- /navbar-collapse -->
+                          </div><!-- / .container-fluid -->
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header> <!-- end of header area -->
+    
+            
+
+
+
+       <div class="container-login100">
+            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+<div class="login-form">
+<div class="form ">
+	<form name="myForm" class="register_form login_form login100-form validate-form flex-sb flex-w" action="controller/register" method="post" >
+    
+        <span class="login100-form-title p-b-32">
+                Register
+                </span>
+   
+                <span class="txt1 p-b-11">Name<span class="err">*</span></span>:
+                <div class="wrap-input100 validate-input m-b-36">
+                <input class="input100" type="text" name="name"pattern="[A-Za-z]{1,32}" maxlength="32" title="Please Enter your name"required /><br />
+                <span class="focus-input100"></span>
+            </div>
+                <br><span class="txt1 p-b-11">Date of Birth <span class="err">*</span></span>:
+                <div class="wrap-input100 validate-input m-b-36">
+                <input class="input100" type="date" name="dob"  required /><br />
+                </div>
+        <br><span class="txt1 p-b-11"> Mobile<span class="err">*</span></span>:
+        
+        <div class="wrap-input100 validate-input m-b-36">
+        <input class="input100" type="tel"  name="phone" pattern="^\d{10}$" title=" Please enter 10 digits numbers " maxlength="10" required /><br />
+   
+        </div>     <br>
+        <span class="txt1 p-b-11"> Username<span class="err">*</span></span>:
+        <div class="wrap-input100 validate-input m-b-36">
+        <input class="input100" type="text" name="username" pattern="^[a-z0-9_]{3,15}$" title="Must contain atleast one number,letters,'_'"required/><br />
+        </div>
+        <br><span class="txt1 p-b-11"> Email Id<span class="err">*</span></span>:
+        <div class="wrap-input100 validate-input m-b-36">
+        <input class="input100" type="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please Enter your valid email" required/><br />
+        </div><br>
+        <span class="txt1 p-b-11">Password<span class="err">*</span></span>:
+        <div class="wrap-input100 validate-input m-b-36">
+        <input class="input100" type="password" name="password"pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required/><br />
+        </div><br>
+        <span class="txt1 p-b-11"> Address<span class="err">*</span></span>:
+		<div class="wrap-input100 validate-input m-b-36">
+            <textarea input class="input100"  type=text name="address"> </textarea>
+            </div>
+		<br /><br>
+		<div class="emi_card">
+		<span class="name_card txt1 p-b-11" >Card Type</span> <span class="err">*</span>:
+		<input  class="radio_set"  type="radio" name="cardtype" value="gold"> GOLD
+		<input  class="radio_set"  type="radio" name="cardtype" value="titanium" >TITANIUM
+			</div><br>
+            <span class="txt1 p-b-11"> Bank<span class="err">*</span></span>:<select name="bank" required>
+			<option value="select">select</option>
+			<option value="SBI">SBI</option>
+			<option value="ATLANTICA">ATLANTICA</option>
+			<option value="CITI BANK">CITI BANK</option>
+		</select><br />
+        <br><span class="txt1 p-b-11">Saving Account No<span class="err">*</span></span>:
+        <div class="wrap-input100 validate-input m-b-36">
+        <input class="input100"type="number" name="accountno" pattern="^([0-11]{12})$" title="Please enter your 11 digit account number"required/><br />
+        </div>
+
+        <br><span class="txt1 p-b-11"> Enter IFSC Code<span class="err">*</span></span>:
+        <div class="wrap-input100 validate-input m-b-36">
+        <input class="input100" type="text" name="ifsccode" pattern="^[A-Za-z]{4}[a-zA-Z0-9]{7}$" title="Please Enter 11 digit IFSC Code"required /><br />
+        <br>
+        </div>
+        
+        
+        <span class="txt1 p-b-11">Enter your Security Question<span class="err">*</span></span>:
+		<select name="securityQuestion" required>
+		<option value="select">select</option>
+		<option value="What was your childhood nickname? ">What was your childhood nickname? </option>
+		<option value="What is the name of your favorite childhood friend? ">What is the name of your favorite childhood friend? </option>
+		<option value="What is your pet's name?">What is your pet's name?</option>
+		<option value="What was your favorite sport in high school?">What was your favorite sport in high school?</option>
+		<option value="What is the name of the High School you graduated from?">What is the name of the High School you graduated from?</option>
+		<option value="What is the name of the first school you attended?">What is the name of the first school you attended?</option><br>
+			</select>
+			<br><span class="txt1 p-b-11">Enter your Security Answer <span class="err">*</span></span>:
+            <div class="wrap-input100 validate-input m-b-36">
+            <input class="input100" type="text" name="securityAnswer"  required /><br />
+            </div>
+		<br> <input class="button_sub btn btn-primary btn-lg" type="submit" value="Register" onclick="return validateForm()"/>
+		<input class="button_sub btn btn-primary btn-lg" type="reset" value="Reset">
+        <span class="link_block">	Already a User? <a href="http://localhost:8181/FinanaceManagementSystem/Login.jsp">Sign In </a> </span>
+	</form>
+</div></div>
+</div>
+</div>
+</body>
+</html>
