@@ -1,0 +1,129 @@
+<html>
+<head>
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+ <link rel="stylesheet" href="madebyme.css">
+
+<script type="text/javascript" src="../js/jquery-1.4.3.min.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Checkout</title>
+
+<script src="jquery.js"></script> 
+<script> 
+$(function(){
+  $(".top-header").load("header.html"); 
+});
+</script> 
+<style>
+    .heading h1{text-align: center;
+    width: 100%;}
+.checkout_page{
+
+    padding: 20px;
+    font-size: 20px;
+}
+input[type="submit"]{      background: beige;
+    padding: 17px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #337ab7;}
+
+    span.line_ {
+    padding-bottom: 10px;
+    display: block;}
+    .submit_{
+        padding-top: 30px;
+    }
+    input[type="submit"] {
+   
+    max-width: 50%;
+    width: 42%;
+}
+</style>
+</head>
+<body>
+<div class="container-login100">
+            <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+        <div data-include="/header.html"></div>
+
+<span calss="heading" ><h1>Here is your EMI Plan</h1></span>
+
+<div class="checkout_page">
+<td colspan="6" align="right"><span class="line_">Total Amount - ${sessionScope.cartTotal}</td><br></span>
+<span class="line_">Choose EMi Plan<span class="err">*</span>:<br></span>
+			
+								<select id="numberOfMonths" name="value" >
+								<option value="">Select number of months</option>
+											<option value="3" name="emiplan" id="three">3</option>
+											<option value="6" name="emiplan" id="six">6</option>
+											<option value="12" name="emiplan" id="tweleve">12</option>
+											<option value="18" name="emiplan" id="eighteen">18</option>
+											<option value="24" name="emiplan" id="twentyfour">24</option>
+											<option value="36" name="emiplan" id="thirtysix">36</option>
+								</select>
+                	
+                	
+	<br><td colspan="6" align="right"><span class="line_">amount to pay : </span> <input type="text" id = "amountPay"  placeholder="MONTHLY EMI" readonly> </td><br>		
+		<!--  <a href="paymentgateway.jsp" name="PAY NOW">PAY NOW</a>-->
+<div class="submit_">
+                	<input type="submit" value="Calculate EMI" name="calEMI" onclick="calculate()">
+                	<input type="submit" value="Pay Now" name="pay" onclick="emi()">
+                </div>       	
+                	<!-- <form action="controller/emi" method="POST">
+						<input id="data" type="hidden" value="" />
+						<input type="submit" />
+					</form> -->
+                	<%-- <input id="emi"type="hidden" name="emi" value="<%=request.getParameter
+  ("emiPerMonth") %>" > --%>
+                </div>
+<script>
+var total = ${sessionScope.cartTotal};
+function calculate(){
+	var Month = document.getElementById("numberOfMonths").value;
+    var emiPerMonth = total / Month;
+    document.getElementById("amountPay").value= emiPerMonth;
+    console.log(emiPerMonth);
+    session.setAttribute("emiPerMonth",emiPerMonth);
+}
+ 
+</script>
+<script> 
+function emi(){
+	/* session.getAttribute("emiPerMonth",emiPerMonth)
+	document.location.href = "controller/emi?sum=${sessionScope.emiPerMonth }"; */
+	var Month = document.getElementById("numberOfMonths").value;
+    var emiPerMonth = total / Month;
+    document.getElementById("amountPay").value= emiPerMonth;
+    console.log(emiPerMonth);
+	document.location.href="controller/checkout/payemi?sum="+emiPerMonth;
+	//document.location.href="payment.jsp";
+	}
+</script>
+       <%--  <%
+        int emiPerMonth=Integer.parseInt(document.getElementById("amountPay").value);
+        %>   --%>
+        
+    </div></div>
+    
+        <footer class="footer clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6 footer-para">
+                            <p>&copy; <a href="https://www.freshdesignweb.com">Axis Finanace</a> &copy All right reserved</p>
+                        </div>
+    
+                        <div class="col-xs-6 text-right">
+                            <a href=""><i class="fa fa-facebook"></i></a>
+                            <a href=""><i class="fa fa-twitter"></i></a>
+                            <a href=""><i class="fa fa-skype"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            
+
+</body>
+</html>
